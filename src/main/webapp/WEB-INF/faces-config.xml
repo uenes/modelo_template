@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="1.2" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+
+    <application>
+        <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+
+        <locale-config>
+            <default-locale>pt_BR</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <message-bundle>br.template.web.bundles.mensagensJSF</message-bundle>
+
+        <resource-bundle>
+            <base-name>br.template.web.bundles.mensagensViews</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+
+    <managed-bean>
+        <managed-bean-name>SessaoMB</managed-bean-name>
+        <managed-bean-class>br.template.controle.SessaoMB</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <!-- NAVEGACAO GERAL -->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>ENTRAR</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>SAIR</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>HOME</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:composition template="/WEB-INF/recursos/template/templateExterno.xhtml">
+        <ui:define name="tituloArea">
+
+        </ui:define>
+
+        <ui:define name="conteudo">
+            <div style="text-align: center" >
+
+                <a4j:outputPanel rendered="#{SessaoMB.usuarioLogado == null}">
+                    <p>#{msg.bemVindoLabel}</p>
+                    <p>#{msg.facaLoginLabel}</p>
+                </a4j:outputPanel>
+
+                <a4j:outputPanel rendered="#{SessaoMB.usuarioLogado != null}">
+                    <h:form id="frm_logout" >
+                        <div style="text-align: right;">
+                            <h:commandButton id="btnLogout"
+                                             class="btn"
+                                             value="Sair" 
+                                             action="#{SessaoMB.sair}"/>
+                        </div>
+                    </h:form>
+                    <p><h:outputText value="Bem-vindo #{SessaoMB.usuarioLogado.login}." /></p>
+                    <p>#{msg.escolhaOpcaoMenuLabel}</p>
+                </a4j:outputPanel>
+            </div>
+        </ui:define>
+    </ui:composition>            
+</html>

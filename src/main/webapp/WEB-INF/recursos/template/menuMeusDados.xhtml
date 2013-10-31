@@ -1,0 +1,40 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:a4j="http://richfaces.org/a4j">
+
+    <ui:composition template="/WEB-INF/recursos/template/blocoLateral.xhtml">
+
+        <ui:define name="tituloBlocoLateral">
+            <a4j:outputPanel rendered="#{SessaoMB.usuarioLogado != null}">
+
+                Usuário
+
+            </a4j:outputPanel>
+        </ui:define>
+
+        <ui:define name="conteudoBlocoLateral">            
+            <a4j:outputPanel rendered="#{SessaoMB.usuarioLogado != null}">
+
+                <hr></hr>
+
+                <b><h:outputText value="Nome: " /></b>
+                <h:outputText value="#{SessaoMB.usuarioLogado.login}" /><br/>
+
+                <b><h:outputText value="Perfil: " /></b>
+                <h:outputText value="#{SessaoMB.usuarioLogado.getPerfilString()}" /><br/>
+
+                <hr></hr>
+
+                <h:form id="frm_logout" >
+                    <div style="text-align: right;">
+                        <h:commandButton id="btnLogout"
+                                         class="btn btn-inverse"
+                                         value="Sair" 
+                                         action="#{SessaoMB.sair}"/>
+                    </div>
+                </h:form>
+            </a4j:outputPanel>
+        </ui:define>
+    </ui:composition>
+</html>

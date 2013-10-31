@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"      
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xml:lang="pt-br" lang="pt-br" dir="ltr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" type="text/css" media="all" href="#{request.contextPath}/recursos/css/bootstrap.css"/>
+        <title><ui:insert name="tituloPagina"/> ITA</title>
+        <script type="text/javascript" src="#{request.contextPath}/recursos/js/bootstrap.js"></script>
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <ui:include src="/WEB-INF/recursos/template/menuPrincipal.xhtml"></ui:include>
+            </div>
+        </div>
+        
+        <div class="container"><ui:include src="/WEB-INF/recursos/template/menuLogin.xhtml"></ui:include></div>
+
+        <div id="divConteudo">
+            <h1><ui:insert name="tituloArea"/></h1>
+            <h3><div class="container"><ui:insert name="tituloPagina"/></div></h3>
+            <div class="container"><ui:insert name="conteudo"/></div>
+        </div>
+
+        <rich:messages id="block-messages" layout="list"
+                       globalOnly="false"
+                       errorClass="form-messages-error"
+                       infoClass="form-messages-info"
+                       warnClass="form-messages-warn"
+                       rendered="#{showGlobalMessages != 'false'}"/>
+
+        <div id="idFooter">
+            <div class="content">
+                Desenvolvido por Uenes Vilaça (uenes@ymail.com)<br/>
+            </div>
+        </div>
+
+    </body>
+</html>

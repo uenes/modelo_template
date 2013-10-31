@@ -1,0 +1,31 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:a4j="http://richfaces.org/a4j">
+
+    <a4j:outputPanel rendered="#{SessaoMB.usuarioLogado == null}">
+        <div style="padding-top: 20px; padding-left: 50px" >
+                <h:form id="frm_menuLogin">
+            <h:panelGrid columns="2" style="text-align: right">
+                <h:outputText value="Login" style="padding-right: 20px;" />
+                <h:inputText value="#{SessaoMB.login}" 
+                             id="login" 
+                             required="true" 
+                             requiredMessage="O campo Login é obrigatório."/>
+                <h:outputText value="Senha" style="padding-right: 20px;" />
+                <h:inputSecret value="#{SessaoMB.senha}" 
+                               id="inputPassword" 
+                               required="true" 
+                               requiredMessage="O campo Senha é obrigatório." />
+                <div></div>
+                    <h:commandButton id="btnLogar"
+                                     class="btn btn-inverse"
+                                     value="Login" 
+                                     action="#{SessaoMB.logar}"/>
+            </h:panelGrid>
+                </h:form>
+        </div>
+    </a4j:outputPanel>
+
+
+</html>

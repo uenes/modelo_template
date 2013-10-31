@@ -1,0 +1,21 @@
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:a4j="http://richfaces.org/a4j">
+
+    <h:form rendered="#{SessaoMB.usuarioLogado != null}">
+        <a class="brand" href="#">Menu Principal</a>
+        <ul class="nav">
+            <li>
+                <h:commandLink value="#{msg.gerenciarAgenda}" 
+                               action="#{AgendaMB.gerenciarAgenda()}"/>
+            </li>
+            <li>
+                <h:commandLink value="GFs" 
+                               action="#{GerenciarGfMB.gerenciarGf()}"/>
+            </li>
+        </ul>
+    </h:form>
+
+
+</html>
